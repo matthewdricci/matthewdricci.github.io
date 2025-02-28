@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c5d34; /* Forest green */
-            --secondary-color: #4b7c6f; /* Muted teal */
-            --accent-color: #d1b280; /* Warm sand */
-            --light-color: #f4f1eb; /* Off-white */
-            --dark-color: #2d3033; /* Dark slate */
-            --font-primary: 'Georgia', serif;
-            --font-secondary: 'Helvetica Neue', Arial, sans-serif;
+            --primary-color: #008489; /* Airbnb teal */
+            --secondary-color: #38656a; /* Deeper teal */
+            --accent-color: #FF5A5F; /* Airbnb coral */
+            --light-accent: #00A699; /* Light teal */
+            --light-color: #ffffff; /* White */
+            --off-white: #F7F7F7; /* Off-white */
+            --text-color: #484848; /* Airbnb text color */
+            --light-text: #767676; /* Airbnb secondary text */
+            --border-radius: 12px;
+            --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -23,94 +27,116 @@
         }
         
         body {
-            font-family: var(--font-secondary);
+            font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
+            color: var(--text-color);
             background-color: var(--light-color);
-            background-image: linear-gradient(rgba(244, 241, 235, 0.95), rgba(244, 241, 235, 0.95)), 
-                              url('/api/placeholder/1920/1080');
-            background-size: cover;
-            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            background-image: linear-gradient(rgba(44, 93, 52, 0.9), rgba(44, 93, 52, 0.9)), 
+            background: linear-gradient(135deg, rgba(0, 132, 137, 0.9) 0%, rgba(56, 101, 106, 0.9) 100%);
+            background-image: linear-gradient(135deg, rgba(0, 132, 137, 0.9) 0%, rgba(56, 101, 106, 0.9) 100%), 
                               url('/api/placeholder/1920/500');
             background-size: cover;
             background-position: center;
-            border-bottom: 5px solid var(--accent-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
         }
         
-        .hero {
-            padding: 60px 0;
+        .hero-content {
+            max-width: 720px;
+            margin: 0 auto;
         }
         
         h1 {
-            font-family: var(--font-primary);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
         
         h2 {
-            font-family: var(--font-primary);
             font-size: 2rem;
-            color: var(--primary-color);
-            margin: 30px 0 20px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 48px 0 24px;
+            letter-spacing: -0.3px;
         }
         
         h3 {
-            font-family: var(--font-primary);
             font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin: 20px 0 10px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 24px 0 16px;
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 16px 0 8px;
         }
         
         p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            font-size: 1rem;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--accent-color);
-            color: var(--dark-color);
-            padding: 12px 24px;
+            color: white;
+            padding: 14px 24px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin: 10px 5px;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 16px 8px;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(255, 90, 95, 0.2);
+            font-size: 1rem;
         }
         
         .btn:hover {
-            background-color: var(--primary-color);
-            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 90, 95, 0.25);
         }
         
-        .feature-box {
+        .btn-secondary {
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 30px 0;
-            transition: transform 0.3s ease;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            box-shadow: none;
         }
         
-        .feature-box:hover {
-            transform: translateY(-5px);
+        .btn-secondary:hover {
+            background-color: #f7f7f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 32px;
+            margin: 24px 0;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
         }
         
         .contact-info {
@@ -118,89 +144,206 @@
             flex-wrap: wrap;
             justify-content: center;
             margin: 30px 0;
+            gap: 20px;
         }
         
         .contact-item {
-            margin: 10px 20px;
             display: flex;
             align-items: center;
+            padding: 12px 20px;
+            background-color: var(--off-white);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(0, 132, 137, 0.08);
         }
         
         .contact-item i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: var(--primary-color);
             font-size: 1.2rem;
         }
         
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             margin: 40px 0;
         }
         
         .service-card {
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            transition: all 0.3s ease;
-            border-top: 5px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 32px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
         }
         
         .service-card h3 {
             color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .service-card h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
         
         .pricing {
-            background-color: var(--light-color);
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
+            background-color: var(--off-white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: auto;
         }
         
         footer {
-            background-color: var(--primary-color);
+            background-color: var(--text-color);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+            padding: 48px 0;
+            margin-top: 80px;
         }
         
         .superhost-badge {
-            display: inline-block;
-            background-color: #FF385C;
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent-color);
             color: white;
             padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-left: 10px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
             vertical-align: middle;
+        }
+        
+        .superhost-badge::before {
+            content: "\f005";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 4px;
+            font-size: 0.7rem;
         }
         
         ul {
             margin-left: 20px;
             margin-bottom: 20px;
+            color: var(--text-color);
         }
         
         li {
             margin-bottom: 10px;
         }
         
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 12px;
+        }
+        
+        .section-header p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+        
+        .feature-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(0, 132, 137, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .feature-content {
+            flex-grow: 1;
+        }
+        
+        .feature-content h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero-buttons {
+            margin-top: 32px;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2300a699' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        
+        .catskills-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .hero {
@@ -210,25 +353,48 @@
             .services {
                 grid-template-columns: 1fr;
             }
+            
+            .card, .service-card {
+                padding: 24px;
+            }
+            
+            header {
+                padding: 60px 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .contact-item {
+                width: 100%;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-pattern">
     <header>
         <div class="container">
-            <h1>Hudson Valley Short Term Rental Management</h1>
-            <p>Let us transform your Airbnb experience and maximize your profits</p>
+            <div class="hero-content">
+                <h1>Hudson Valley Short Term Rental Management</h1>
+                <p>Transform your Airbnb experience and maximize your profits with our local expertise</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Our Services</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="container">
-        <section class="hero">
-            <div class="feature-box">
+        <section id="intro">
+            <div class="card">
                 <h2>Is Your Airbnb Not Going As Planned?</h2>
-                <p>If you own an Airbnb property that isn't going how you'd hoped, we may be able to run it for you <strong>AND make you more money</strong>.</p>
+                <p>If you own an Airbnb property that isn't going how you'd hoped, we may be able to run it for you <span class="highlight">AND make you more money</span>.</p>
                 <p>We take away all of your hassle with <strong>Airbnb/VRBO/Booking.com initial set up, and day to day management</strong>.</p>
                 
-                <div class="contact-info">
+                <div class="contact-info" id="contact">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <span>Text/call Matt: <a href="tel:7815267873">781-526-7873</a></span>
@@ -245,24 +411,44 @@
             </div>
         </section>
 
-        <section>
-            <h2>Who Are We?</h2>
-            <div class="feature-box">
+        <section id="about">
+            <div class="section-header">
+                <h2>Who Are We?</h2>
+                <p>Local experts passionate about property management</p>
+            </div>
+            <div class="card">
                 <p>We are two Airbnb Superhosts in the Hudson Valley of New York, <a href="https://www.airbnb.com/users/show/412684774">Tonya Fitzgerald</a> <span class="superhost-badge">Superhost</span> and <a href="https://www.airbnb.com/users/show/34061207">Matt Ricci</a> <span class="superhost-badge">Superhost</span>, who have been successful managing and cleaning our own Airbnbs.</p>
                 
                 <p>We started helping friends who struggled with theirs, and then expanded further to help people who were frustrated. This is kind of a passion project - we get a lot of joy out of this kind of work and would love to do more of it.</p>
                 
-                <ul>
-                    <li><strong>Tonya</strong> has been taking care of homes for 22 years and runs an Airbnb cleaning business currently servicing 26 homes. Her cleaning business is <a href="https://www.catskills-upstate-cleaning.com/">Catskills Upstate Cleaning</a>.</li>
-                    
-                    <li><strong>Matt</strong> has spent his career in customer service and hospitality, as well as working with computers. He will take away all your tech stress and not make you feel overwhelmed about your questions.</li>
-                </ul>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Tonya</h3>
+                        <p>Has been taking care of homes for 22 years and runs an Airbnb cleaning business currently servicing 26 homes. Her cleaning business is <a href="https://www.catskills-upstate-cleaning.com/">Catskills Upstate Cleaning</a>.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Matt</h3>
+                        <p>Has spent his career in customer service and hospitality, as well as working with computers. He will take away all your tech stress and not make you feel overwhelmed about your questions.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Who Are You?</h2>
-            <div class="feature-box">
+        <section id="for-you">
+            <div class="section-header">
+                <h2>Who Are You?</h2>
+                <p>Property owners looking for a better way</p>
+            </div>
+            <div class="card">
                 <p>If you own a property listed on places like Airbnb, VRBO, and Booking.com, but the initial setup intimidates you, all the computer tasks are consuming you, or the on-site day to day management is stressing you out, <strong>we can help you</strong>.</p>
                 
                 <p>We help people who feel like managing their Airbnb is stressing their daily lives, distracting them from their day jobs or their family commitments.</p>
@@ -271,28 +457,62 @@
             </div>
         </section>
 
-        <section>
-            <h2>Why We're Different</h2>
-            <div class="feature-box">
-                <h3>1. You Will Own All Your Own Things</h3>
-                <p>If we work together for some time, and then you decide this isn't a fit anymore, <strong>everything is still yours</strong>. You retain ownership of your listings, all your calendar automation, all the automatic messages that go to guests, future bookings, etc. It's your house, and your business - you don't have to "start over from scratch" if you want to change your management approach.</p>
+        <section id="differences">
+            <div class="section-header">
+                <h2>Why We're Different</h2>
+                <p>Not your average property management service</p>
+            </div>
+            <div class="card">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>You Will Own All Your Own Things</h3>
+                        <p>If we work together for some time, and then you decide this isn't a fit anymore, <strong>everything is still yours</strong>. You retain ownership of your listings, all your calendar automation, all the automatic messages that go to guests, future bookings, etc. It's your house, and your business - you don't have to "start over from scratch" if you want to change your management approach.</p>
+                    </div>
+                </div>
                 
-                <h3>2. We're Superhosts, and Can Make You One</h3>
-                <p>We think one of the reasons people struggle with property managers is that they are not <a href="https://www.airbnb.com/help/article/828">Airbnb Superhosts</a>. That makes a big difference to guest confidence and really impacts your bookings.</p>
-                <p>Large Property Managers aren't Superhosts because they're big companies, with generic customer support, and mixed ratings. That hurts your property bookings.</p>
-                <p>While we can't guarantee to get you Superhost status, we are mutually incentivized to get you there, as we'll all make more money. You get to own your own listing, and be a Superhost, with a fraction of the work.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>We're Superhosts, and Can Make You One</h3>
+                        <p>We think one of the reasons people struggle with property managers is that they are not <a href="https://www.airbnb.com/help/article/828">Airbnb Superhosts</a>. That makes a big difference to guest confidence and really impacts your bookings.</p>
+                        <p>Large Property Managers aren't Superhosts because they're big companies, with generic customer support, and mixed ratings. That hurts your property bookings.</p>
+                        <p>While we can't guarantee to get you Superhost status, we are mutually incentivized to get you there, as we'll all make more money. You get to own your own listing, and be a Superhost, with a fraction of the work.</p>
+                    </div>
+                </div>
                 
-                <h3>3. We're Local</h3>
-                <p>Tonya has spent her whole life in the Hudson Valley, and Matt's houses are in Kingston, NY. You're not dealing with a far away company, you're dealing with people with roots in the area, who care about our community.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>We're Local</h3>
+                        <p>Tonya has spent her whole life in the Hudson Valley, and Matt's houses are in Kingston, NY. You're not dealing with a far away company, you're dealing with people with roots in the area, who care about our community.</p>
+                    </div>
+                </div>
                 
-                <h3>4. We're Qualified</h3>
-                <p>As we said in the intro, we know high quality cleaning, hospitality/customer support, and are good with technology.</p>
-                <p>You will feel a warm partnership with us, and your guests will enjoy that warmth too.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>We're Qualified</h3>
+                        <p>As we said in the intro, we know high quality cleaning, hospitality/customer support, and are good with technology.</p>
+                        <p>You will feel a warm partnership with us, and your guests will enjoy that warmth too.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>What We Can Offer You</h2>
+        <section id="services">
+            <div class="section-header">
+                <h2>What We Can Offer You</h2>
+                <p>Choose the level of service that works for you</p>
+            </div>
             <div class="services">
                 <div class="service-card">
                     <h3>Daily Turnovers</h3>
@@ -394,41 +614,86 @@
             </div>
         </section>
 
-        <section>
-            <h2>What We Need To Serve You Successfully</h2>
-            <div class="feature-box">
+        <section id="requirements">
+            <div class="section-header">
+                <h2>What We Need To Serve You Successfully</h2>
+                <p>Setting up for success</p>
+            </div>
+            <div class="card">
                 <p>From our experience, we know what makes a big difference. We encourage these things for yourself, and sort of require them if we work together:</p>
                 
-                <h3>1. We'd Need To Know Your Goals</h3>
-                <p>Do you want to maximize occupancy, or price per night? Questions like this will matter a lot.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>We'd Need To Know Your Goals</h3>
+                        <p>Do you want to maximize occupancy, or price per night? Questions like this will matter a lot.</p>
+                    </div>
+                </div>
                 
-                <h3>2. Linens: We'll Use Our Own</h3>
-                <p>We believe that clean sheets and towels will make or break a guest's impression of a stay. We <strong>aggressively</strong> remove linens from rotation if they're discolored or worn, because we don't want a $20 towel to ruin a $400 booking.</p>
-                <p>We also like a good stockpile of linens, instead of the bare minimum. So we'll just use our own, and they'll be great.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Linens: We'll Use Our Own</h3>
+                        <p>We believe that clean sheets and towels will make or break a guest's impression of a stay. We <strong>aggressively</strong> remove linens from rotation if they're discolored or worn, because we don't want a $20 towel to ruin a $400 booking.</p>
+                        <p>We also like a good stockpile of linens, instead of the bare minimum. So we'll just use our own, and they'll be great.</p>
+                    </div>
+                </div>
                 
-                <h3>3. Smart Locks: A Near-Must</h3>
-                <p>The Schlage Encode smart lock is a near-must for successful hosting. Other models just prove to be finicky. Lockboxes are a bad experience, and unsafe because the code is reused, or the keys can be copied/lost.</p>
-                <p>Each guest will get a unique code for their booking, that will only be active during their booking.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Smart Locks: A Near-Must</h3>
+                        <p>The Schlage Encode smart lock is a near-must for successful hosting. Other models just prove to be finicky. Lockboxes are a bad experience, and unsafe because the code is reused, or the keys can be copied/lost.</p>
+                        <p>Each guest will get a unique code for their booking, that will only be active during their booking.</p>
+                    </div>
+                </div>
                 
-                <h3>4. Daily Maintenance</h3>
-                <p>We are very frugal owners! We take our money very seriously and spend conservatively. But we feel very strongly that sometimes it costs more money to spend less.</p>
-                <p>It's important that the landscaping looks good, snow is addressed properly, maintenance items are fixed, and blankets/pillows/furniture looks good.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Daily Maintenance</h3>
+                        <p>We are very frugal owners! We take our money very seriously and spend conservatively. But we feel very strongly that sometimes it costs more money to spend less.</p>
+                        <p>It's important that the landscaping looks good, snow is addressed properly, maintenance items are fixed, and blankets/pillows/furniture looks good.</p>
+                    </div>
+                </div>
                 
-                <h3>5. Smart Thermostats/Cooling Help</h3>
-                <p>This can't be a "must" because sometimes a house can't support it. But if you can put in a smart thermostat, it can help a lot. We can automate it so that a guest walks in to a comfortable temperature when they arrive, and when a guest isn't there, you aren't heating/cooling an empty house.</p>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Smart Thermostats/Cooling Help</h3>
+                        <p>This can't be a "must" because sometimes a house can't support it. But if you can put in a smart thermostat, it can help a lot. We can automate it so that a guest walks in to a comfortable temperature when they arrive, and when a guest isn't there, you aren't heating/cooling an empty house.</p>
+                    </div>
+                </div>
                 
-                <h3>6. Software Subscriptions</h3>
-                <p>To run your house effectively, you will need some recurring software costs. You will own (and pay for) these platforms, but we will manage them for you:</p>
-                <ul>
-                    <li>$20/mo/property for a "Channel Manager" like Guesty</li>
-                    <li>$20/mo/property for Pricing software, like Pricelabs</li>
-                    <li>$5/mo/lock for automated lock codes</li>
-                </ul>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Software Subscriptions</h3>
+                        <p>To run your house effectively, you will need some recurring software costs. You will own (and pay for) these platforms, but we will manage them for you:</p>
+                        <ul>
+                            <li>$20/mo/property for a "Channel Manager" like Guesty</li>
+                            <li>$20/mo/property for Pricing software, like Pricelabs</li>
+                            <li>$5/mo/lock for automated lock codes</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <div class="feature-box" style="text-align: center;">
+        <section id="cta">
+            <div class="card" style="text-align: center;">
                 <h2>Ready to Transform Your Short-Term Rental Experience?</h2>
                 <p>Let us help you maximize your property's potential while minimizing your stress.</p>
                 <a href="tel:7815267873" class="btn"><i class="fas fa-phone"></i> Call Matt</a>
