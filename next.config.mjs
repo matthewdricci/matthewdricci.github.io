@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',
+  basePath: '/matthewdricci.github.io',
+  assetPrefix: '/matthewdricci.github.io/',
 }
 
 export default nextConfig
